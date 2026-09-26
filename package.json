@@ -1,0 +1,67 @@
+{
+  "name": "nihilo",
+  "author": "cagelight",
+  "version": "1.0.0",
+  "keywords": [
+    "pebble-app"
+  ],
+  "private": true,
+  "dependencies": {},
+  "pebble": {
+    "displayName": "nihilo",
+    "uuid": "992ae28f-ec60-4a6b-b443-08471ed5ac82",
+    "sdkVersion": "3",
+    "enableMultiJS": true,
+    "targetPlatforms": [
+      "emery"
+    ],
+    "watchapp": {
+      "watchface": true
+    },
+    "messageKeys": [
+      "dummy"
+    ],
+    "resources": {
+      "media": [
+        {
+          "type": "font",
+          "name": "FONT_VERGILIA_16",
+          "file": "fonts/16/vergilia.ttf",
+          "characterRegex": "[ -~]"
+        },
+        {
+          "type": "font",
+          "name": "FONT_NOTCAKE_MONO_22",
+          "file": "fonts/22M/not-cake-cmptrmn-1-5.ttf",
+          "characterRegex": "[ -~]"
+        },
+        {
+          "type": "font",
+          "name": "FONT_NOTCAKE_MONO_44",
+          "file": "fonts/22M/not-cake-cmptrmn-1-5.ttf",
+          "characterRegex": "[0-9]"
+        },
+        {
+          "type": "bitmap",
+          "name": "IMG_ASS",
+          "file": "img/ass.png"
+        },
+        {
+          "type": "bitmap",
+          "name": "IMG_ENNF",
+          "file": "img/ennf.png"
+        },
+        {
+          "type": "bitmap",
+          "name": "IMG_FALKIE",
+          "file": "img/falkie.png"
+        },
+        {
+          "type": "bitmap",
+          "name": "IMG_SLEEP",
+          "file": "img/sleep.png"
+        }
+      ]
+    }
+  }
+}

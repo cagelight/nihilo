@@ -1,0 +1,13 @@
+{
+  "configurations": [
+    {
+      "name": "Pebble Emery",
+      "cStandard": "c99",
+      "includePath": [
+        "${workspaceFolder}/src/c",
+        "/home/cagelight/.local/share/pebble-sdk/SDKs/4.33.1/sdk-core/pebble/emery/include/"
+      ]
+    }
+  ],
+  "version": 4
+}
