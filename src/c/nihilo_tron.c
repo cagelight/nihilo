@@ -13,8 +13,8 @@ static const GColor8 hsv_s100[6][3] = {
 #define GRID_X 100
 #define GRID_Y 114
 #define DANGER_INTERVAL 8
-#define DANGER_START 10
-#define BIKE_TAIL 4
+#define DANGER_START 8
+#define BIKE_TAIL 6
 
 #define BIKE_AGGR_BITS 4
 #define BIKE_AGGR_MAX ((uint32_t)(1 << BIKE_AGGR_BITS))
@@ -109,23 +109,23 @@ static void nihilo_tron_update_proc( Layer *layer, GContext *ctx ) {
 static void nihilo_tron_create( Window *win ) {
 	nihilo_tron_data = calloc( 1, sizeof( struct nihilo_tron_data_s ) );
 
-	// RED
+	// RED -- calm and fearless
 	NIHILO.bikes[0].x = 50;
 	NIHILO.bikes[0].y = 17;
 	NIHILO.bikes[0].team = 1;
 	NIHILO.bikes[0].dir = rand() % 4;
-	NIHILO.bikes[0].aggr = BIKE_AGGR_MAX - 1; // always aggressive
-	NIHILO.bikes[0].fear = rand() % BIKE_FEAR_MAX;
-	NIHILO.bikes[0].rand = BIKE_RAND_MAX - 1; // always random
+	NIHILO.bikes[0].aggr = BIKE_AGGR_MAX - 1;
+	NIHILO.bikes[0].fear = 0;
+	NIHILO.bikes[0].rand = 0;
 
-	// YELLOW
+	// YELLOW -- crazy
 	NIHILO.bikes[1].x = 85;
 	NIHILO.bikes[1].y = 37;
 	NIHILO.bikes[1].team = 2;
 	NIHILO.bikes[1].dir = rand() % 4;
-	NIHILO.bikes[1].aggr = rand() % BIKE_AGGR_MAX;
-	NIHILO.bikes[1].fear = rand() % BIKE_FEAR_MAX;
-	NIHILO.bikes[1].rand = rand() % BIKE_RAND_MAX;
+	NIHILO.bikes[1].aggr = BIKE_AGGR_MAX - 1;
+	NIHILO.bikes[1].fear = BIKE_FEAR_MAX - 1;
+	NIHILO.bikes[1].rand = BIKE_RAND_MAX - 1;
 
 	// GREEN
 	NIHILO.bikes[2].x = 85;
@@ -145,14 +145,14 @@ static void nihilo_tron_create( Window *win ) {
 	NIHILO.bikes[3].fear = rand() % BIKE_FEAR_MAX;
 	NIHILO.bikes[3].rand = rand() % BIKE_RAND_MAX;
 
-	// BLUE
+	// BLUE -- calm and risk averse
 	NIHILO.bikes[4].x = 15;
 	NIHILO.bikes[4].y = 77;
 	NIHILO.bikes[4].team = 5;
 	NIHILO.bikes[4].dir = rand() % 4;
-	NIHILO.bikes[4].aggr = rand() % BIKE_AGGR_MAX;
-	NIHILO.bikes[4].fear = rand() % BIKE_FEAR_MAX;
-	NIHILO.bikes[4].rand = 0; // always calm
+	NIHILO.bikes[4].aggr = 0;
+	NIHILO.bikes[4].fear = BIKE_FEAR_MAX - 1;
+	NIHILO.bikes[4].rand = 0;
 
 	// MAGENTA
 	NIHILO.bikes[5].x = 15;

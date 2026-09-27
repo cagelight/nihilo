@@ -21,6 +21,7 @@ typedef struct {
 	void ( *simulate )( nihilo_sim_reason_t );
 } nihilo_sim_t;
 
+extern nihilo_sim_t nihilo_image;
 extern nihilo_sim_t nihilo_numbers;
 extern nihilo_sim_t nihilo_simplex;
 extern nihilo_sim_t nihilo_tron;

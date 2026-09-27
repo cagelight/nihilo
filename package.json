@@ -43,11 +43,6 @@
         },
         {
           "type": "bitmap",
-          "name": "IMG_ASS",
-          "file": "img/ass.png"
-        },
-        {
-          "type": "bitmap",
           "name": "IMG_ENNF",
           "file": "img/ennf.png"
         },
@@ -55,11 +50,6 @@
           "type": "bitmap",
           "name": "IMG_FALKIE",
           "file": "img/falkie.png"
-        },
-        {
-          "type": "bitmap",
-          "name": "IMG_SLEEP",
-          "file": "img/sleep.png"
         }
       ]
     }
