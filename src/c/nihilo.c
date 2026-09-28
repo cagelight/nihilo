@@ -5,7 +5,7 @@ static nihilo_sim_subinfo_t s_subinfo;
 static Window *s_main_window;
 static AppTimer *s_apptimer = NULL;
 
-//#define DEV_OVERRIDE nihilo_image
+//#define DEV_OVERRIDE nihilo_cellauto
 
 static void simstep( nihilo_sim_reason_t reason );
 static void cycle_sim( bool shutdown );
@@ -36,6 +36,7 @@ typedef struct sim_set_s {
 } sim_set_t;
 
 static const sim_set_t nihilo_sims[] = {
+	{ .sim = &nihilo_cellauto, .weight = 30000 },
 	{ .sim = &nihilo_image, .weight = 500 },
 	{ .sim = &nihilo_numbers, .weight = 100 },
 	{ .sim = &nihilo_simplex, .weight = 200 },
@@ -73,8 +74,8 @@ static void cycle_sim( bool shutdown ) {
 			}
 
 			r -= nihilo_sims[i].weight;
-#endif
 		}
+#endif
 
 		s_current_sim->create( s_main_window );
 		memset( &s_subinfo, 0, sizeof( s_subinfo ) );
@@ -109,7 +110,7 @@ static void deinit( void ) {
 }
 
 int main( void ) {
-	light_enable(true);
+	light_enable( true );
 	init();
 	app_event_loop();
 	deinit();

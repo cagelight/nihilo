@@ -1,5 +1,4 @@
 #include "nihilo.h"
-#include "../../build/emery/src/resource_ids.auto.h"
 
 #define LIFE 10000
 

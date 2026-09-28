@@ -15,7 +15,7 @@
 
 #define REFRESH_INTERVAL 2
 #define REFRESH_RATE (REFRESH_INTERVAL * 1000)
-#define CLOSE_SECONDS 600
+#define CLOSE_SECONDS 300
 #define CLOSE_COUNT (CLOSE_SECONDS / REFRESH_INTERVAL)
 
 static struct nihilo_simplex_data_s {
@@ -53,36 +53,7 @@ static void nihilo_simplex_update_proc( Layer *layer, GContext *ctx ) {
 
 			uint8_t d = val < 128 ? val : 256 - val;
 			uint8_t col = ( d * 3 + 64 ) >> 7;
-
-			GColor8 cval = { 0 };
-			cval.a = 3;
-
-			switch ( NIHILO.colormode ) {
-				case 0:
-					cval.r = col;
-					cval.g = col / 3;
-					break;
-				case 1:
-					cval.r = col;
-					cval.b = col / 3;
-					break;
-				case 2:
-					cval.g = col;
-					cval.r = col / 3;
-					break;
-				case 3:
-					cval.g = col;
-					cval.b = col / 3;
-					break;
-				case 4:
-					cval.b = col;
-					cval.r = col / 3;
-					break;
-				case 5:
-					cval.b = col;
-					cval.g = col / 3;
-					break;
-			}
+			GColor8 cval = nihilo_get_colorset( NIHILO.colormode )[col];
 
 #if GRID_ORDER == 1
 			r1.data[x] = cval.argb;

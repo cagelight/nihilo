@@ -25,6 +25,18 @@
       "media": [
         {
           "type": "font",
+          "name": "FONT_ORBITRON_14",
+          "file": "fonts/14/orbitron.ttf",
+          "characterRegex": "[ -~]"
+        },
+        {
+          "type": "font",
+          "name": "FONT_ORBITRON_28",
+          "file": "fonts/14/orbitron.ttf",
+          "characterRegex": "[ -~]"
+        },
+        {
+          "type": "font",
           "name": "FONT_VERGILIA_16",
           "file": "fonts/16/vergilia.ttf",
           "characterRegex": "[ -~]"
@@ -39,7 +51,7 @@
           "type": "font",
           "name": "FONT_NOTCAKE_MONO_44",
           "file": "fonts/22M/not-cake-cmptrmn-1-5.ttf",
-          "characterRegex": "[0-9]"
+          "characterRegex": "[0-9:]"
         },
         {
           "type": "bitmap",

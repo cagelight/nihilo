@@ -14,7 +14,7 @@ static const char *dead_text[6] = {
 	"YELLOW IS JELL-O",
 	"GREEN? HAS-BEEN.",
 	"CYAN IS LESS THAN",
-	"BLUE TURNS TO STEW",
+	"BLUE... WHO?",
 	"MAGENTA IRREDENTA"
 };
 
@@ -246,7 +246,7 @@ static void nihilo_tron_create( Window *win ) {
 	Layer *root = window_get_root_layer( win );
 	GRect bounds = layer_get_bounds( root );
 
-	NIHILO.font = fonts_load_custom_font( resource_get_handle( RESOURCE_ID_FONT_NOTCAKE_MONO_22 ) );
+	NIHILO.font = fonts_load_custom_font( resource_get_handle( RESOURCE_ID_FONT_ORBITRON_14 ) );
 	NIHILO.layer = layer_create( bounds );
 	layer_set_update_proc( NIHILO.layer, nihilo_tron_update_proc );
 	layer_add_child( window_get_root_layer( win ), NIHILO.layer );

@@ -30,7 +30,7 @@ static const GColor8 hsv_s100_v100[18] = {
 #define FONT RESOURCE_ID_FONT_NOTCAKE_MONO_44
 #define FONT_SIZE 44
 #define REFRESH_RATE 5000
-#define NUMBERS_CLOSE 20
+#define NUMBERS_CLOSE 60
 
 static struct nihilo_numbers_data_s {
 	INTEGERS_TYPE counter;
