@@ -43,13 +43,48 @@
         },
         {
           "type": "bitmap",
+          "name": "IMG_ATEOT",
+          "file": "img/ateot.png"
+        },
+        {
+          "type": "bitmap",
+          "name": "IMG_BOR",
+          "file": "img/bor.png"
+        },
+        {
+          "type": "bitmap",
+          "name": "IMG_DEMON",
+          "file": "img/demon.png"
+        },
+        {
+          "type": "bitmap",
           "name": "IMG_ENNF",
           "file": "img/ennf.png"
         },
         {
           "type": "bitmap",
+          "name": "IMG_EP",
+          "file": "img/ep.png"
+        },
+        {
+          "type": "bitmap",
           "name": "IMG_FALKIE",
           "file": "img/falkie.png"
+        },
+        {
+          "type": "bitmap",
+          "name": "IMG_LOONA",
+          "file": "img/loona.png"
+        },
+        {
+          "type": "bitmap",
+          "name": "IMG_RB",
+          "file": "img/rb.png"
+        },
+        {
+          "type": "bitmap",
+          "name": "IMG_SLR",
+          "file": "img/slr.png"
         }
       ]
     }

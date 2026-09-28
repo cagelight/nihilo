@@ -30,24 +30,25 @@ static const GColor8 hsv_s100_v100[18] = {
 #define FONT RESOURCE_ID_FONT_NOTCAKE_MONO_44
 #define FONT_SIZE 44
 #define REFRESH_RATE 5000
+#define NUMBERS_CLOSE 20
 
 static struct nihilo_numbers_data_s {
 	INTEGERS_TYPE counter;
 	char counter_buffer[ROWS][INTEGERS + 1];
 	TextLayer *number_layers[ROWS];
 	GFont number_font;
+	uint16_t numbers_count;
 } *nihilo_numbers_data;
+
 #define NIHILO (*nihilo_numbers_data)
 
 static void nihilo_numbers_create( Window *win ) {
-	nihilo_numbers_data = malloc( sizeof( struct nihilo_numbers_data_s ) );
+	nihilo_numbers_data = calloc( 1, sizeof( struct nihilo_numbers_data_s ) );
 
 	Layer *root = window_get_root_layer( win );
 	GRect bounds = layer_get_bounds( root );
 
-	NIHILO.counter = 0;
 	NIHILO.number_font = fonts_load_custom_font( resource_get_handle( FONT ) );
-
 
 	for ( int i = 0; i < ROWS; i++ ) {
 		int step = 0;
@@ -77,9 +78,9 @@ static void nihilo_numbers_subinfo( nihilo_sim_subinfo_t *info ) {
 	info->refresh_rate = REFRESH_RATE;
 }
 
-static void nihilo_numbers_simulate( nihilo_sim_reason_t reason ) {
-	if ( reason != NIHILO_SIM_REASON_CLOCK )
-		return;
+static nihilo_sim_reult_t nihilo_numbers_simulate( nihilo_sim_reason_t reason ) {
+	if ( reason != NIHILO_SIM_REASON_INIT && reason != NIHILO_SIM_REASON_CLOCK )
+		return NIHILO_SIM_RESULT_CONTINUE;
 	uint8_t color = rand() % 18;
 	for ( int i = 0; i < ROWS; i++ ) {
 		NIHILO.counter = rand() % INTEGERS_MOD;
@@ -87,6 +88,8 @@ static void nihilo_numbers_simulate( nihilo_sim_reason_t reason ) {
 		text_layer_set_text_color( NIHILO.number_layers[i], hsv_s100_v100[color] );
 		text_layer_set_text( NIHILO.number_layers[i], NIHILO.counter_buffer[i] );
 	}
+	NIHILO.numbers_count++;
+	return NIHILO.numbers_count > NUMBERS_CLOSE ? NIHILO_SIM_RESULT_CLOSE : NIHILO_SIM_RESULT_CONTINUE;
 }
 
 nihilo_sim_t nihilo_numbers = {
